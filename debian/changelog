@@ -1,0 +1,74 @@
+awesfx (0.5.0b-2) unstable; urgency=low
+
+  * *Really* change Build-Depends to reflect ALSA support
+    this time. Honest. Closes: #237741.
+
+ -- Ove Kaaven <ovek@arcticnet.no>  Sat, 13 Mar 2004 16:15:00 +0100
+
+awesfx (0.5.0b-1) unstable; urgency=low
+
+  * New maintainer. Closes: #235271.
+  * New upstream release.
+  * Upstream is now using automake/autoconf, debian/rules is
+    changed accordingly.
+  * Upstream now has ALSA support, Build-Depends is changed
+    accordingly.
+  * Upstream is now installing banks into /usr/share/sounds/sf2,
+    not /usr/lib/sfbank. debian/rules, /etc/sfxload, and others
+    are changed accordingly.
+  * Manually install libawe.a since upstream makefiles don't anymore.
+    Not sure if anyone needs it, but better safe than sorry.
+  * Merged useful README information from unofficial awesfx 0.5.0a
+    package by Nicos Panayides into README.Debian.
+  * And honorary mention to Darren Salt for keeping awesfx 0.4.4
+    available on the web (although this package was based on the
+    official 0.4.4-5 package found on snapshot.debian.net, not on
+    his 0.4.4-6 package).
+
+ -- Ove Kaaven <ovek@arcticnet.no>  Sat, 28 Feb 2004 12:33:10 +0100
+
+awesfx (0.4.4-5) unstable; urgency=low
+
+  * orphaning this package. see #199241
+
+ -- Noel Koethe <noel@debian.org>  Sun, 29 Jun 2003 13:23:00 +0200
+
+awesfx (0.4.4-4) unstable; urgency=low
+
+  * added default config file /etc/sfxloadrc with
+    default directory for sfbanks
+    (closes: Bug#180091)
+  * corrected lintian warning with upstream changelog
+
+ -- Noel Koethe <noel@debian.org>  Fri, 25 Apr 2003 21:45:00 +0100
+
+awesfx (0.4.4-3) unstable; urgency=low
+
+  * added manpages from old awe package for gusload
+    sf2text and sfxtest
+    (closes: Bug#173154)
+  * added note about the former awe-drv and awe-utils
+    package in the description
+    (closes: Bug#173155)
+  * corrected the location of a readme and an example
+    (closes: Bug#173156)
+  * added some docu to the package
+    (closes: Bug#173157)
+  * thanks to Helge Kreutzmann for all these bugs!
+
+ -- Noel Koethe <noel@debian.org>  Thu, 19 Dec 2002 15:13:00 +0100
+
+awesfx (0.4.4-2) unstable; urgency=low
+
+  * corrected dependencies and conflicts
+    (closes: Bug#172300)
+
+ -- Noel Koethe <noel@debian.org>  Mon,  9 Dec 2002 13:40:00 +0100
+
+awesfx (0.4.4-1) unstable; urgency=low
+
+  * Initial Release.
+    (see #171670)
+
+ -- Noel Koethe <noel@debian.org>  Fri,  6 Dec 2002 10:11:20 +0100
+

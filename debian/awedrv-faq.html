@@ -1,0 +1,1357 @@
+<!-- X-URL: http://bahamut.mm.t.u-tokyo.ac.jp/~iwai/awedrv/awedrv-faq.html -->
+<BASE HREF="http://bahamut.mm.t.u-tokyo.ac.jp/~iwai/awedrv/awedrv-faq.html">
+
+<title>AWEDRV FREQUENTLY ASKED QUESTIONS</title>
+<body>
+
+<hr size=10>
+<p>
+
+<center>
+<h1>AWEDRV FREQUENTLY ASKED QUESTIONS</h1><p>
+FAQ ver.1.24<p>
+Takashi Iwai
+(<a href=mailto:iwai@ww.uni-erlangen.de>
+<i>iwai@ww.uni-erlangen.de</i></a>)
+</center>
+<p>
+
+Original site:
+<a href=http://bahamut.mm.t.u-tokyo.ac.jp/~iwai/awedrv/awedrv-faq.html>
+<i>http://bahamut.mm.t.u-tokyo.ac.jp/~iwai/awedrv/awedrv-faq.html</i></a>
+<p>
+
+<hr size=10>
+<dl>
+<dt><a href=#Q1>
+1. GENERAL NOTES
+</a>
+<dl>
+<dt><a href=#Q1.1>
+Q1.1: What is awedrv?  What can I do with this?
+</a>
+<dt><a href=#Q1.2>
+Q1.2: From where can I download AWE32 sound driver for Linux and FreeBSD?
+</a>
+<dt><a href=#Q1.3>
+Q1.3: Does awedrv work on my AWE64 card?
+</a>
+<dt><a href=#Q1.4>
+Q1.4: How can I play my midi files using awe driver?  What configuration is necessary?
+</a>
+<dt><a href=#Q1.5>
+Q1.5: How can I play my .MOD files using awe driver?  What configuration is necessary?
+</a>
+</dl>
+
+<dt><a href=#Q1>
+2. INSTALLATION
+</a>
+<dl>
+<dt><a href=#Q2.1>
+Q2.1*: How to install awedrv on my linux kernel?
+</a>
+<dt><a href=#Q2.2>
+Q2.2*: What options should be set to configure sound module for AWE32 on linux?
+</a>
+<dt><a href=#Q2.3>
+Q2.3*: The linux sound driver can't detect my SB32-PnP card.  Why?
+</a>
+<dt><a href=#Q2.4>
+Q2.4*: I installed ISA PnP tools, but still awedrv says "can't detect AWE32".
+</a>
+<dt><a href=#Q2.5>
+Q2.5*: Can I load my GM file automatically on the sound driver module?
+</a>
+<dt><a href=#Q2.6>
+Q2.6*: I can't install properly on my linux-2.0.0 from Slackware 96.
+</a>
+<dt><a href=#Q2.7>
+Q2.7+: How to install awedrv on my FreeBSD kernel?
+</a>
+<dt><a href=#Q2.8>
+Q2.8+: How to use my PnP card on FreeBSD system?
+</a>
+</dl>
+
+<dt><a href=#Q3>
+3. PLAYING MIDI FILES
+</a>
+<dl>
+<dt><a href=#Q3.1>
+Q3.1: I can't hear anything using drvmidi or playmidi.  Why?
+</a>
+<dt><a href=#Q3.2>
+Q3.2: I have no DRAM in my card - can I still play midi files with it?
+</a>
+<dt><a href=#Q3.3>
+Q3.3: How can I play midi files using the default ROM fonts that come with
+   my card?
+</a>
+<dt><a href=#Q3.4>
+Q3.4: I have a midi file with a specified SBK file.  How can I listen to
+    it? 
+</a>
+<dt><a href=#Q3.5>
+Q3.5: Drvmidi plays strange sounds when I use an addtional SoundFont file.
+</a>
+<dt><a href=#Q3.6>
+Q3.6: I changed chorus and reverb modes using drvmidi, but nothing
+    changed.  Why?
+</a>
+<dt><a href=#Q3.7>
+Q3.7: Many clicking noises can be heard in some midi files.
+</a>
+<dt><a href=#Q3.8>
+Q3.8: Sounds are too loud!
+</a>
+<dt><a href=#Q3.9>
+Q3.9: I have GUS patch files.  Can I use these samples?
+</a>
+<dt><a href=#Q3.10>
+Q3.10: A strange piano sound is heard instead of drum (or other) sounds.
+</a>
+<dt><a href=#Q3.11>
+Q3.11: Drum sounds seem smaller than Windows sound.
+</a>
+<dt><a href=#Q3.12>
+Q3.12: What is "dynamic loading" of drvmidi?
+/a>
+<dt><a href=#Q3.13>
+Q3.13: I want to set up default options.
+</a>
+<dt><a href=#Q3.14>
+Q3.14: Can I play a GS midi file for Roland SC88?
+</a>
+<dt><a href=#Q3.15>
+Q3.15: Can I play a midi file with Yamaha XG format?
+</a>
+<dt><a href=#Q3.16>
+Q3.16: The tone of ver.0.4.3 seems different from others..
+</a>
+<dt><a href=#Q3.17>
+Q3.17: What is a virtual bank file?
+</a>
+</dl>
+
+<dt><a href=#Q4>
+4. PROGRAMMING &amp; MISCELLANEOUS
+</a>
+<dl>
+<dt><a href=#Q4.1>
+Q4.1: The sounds of module player are very weird.  Why?
+</a>
+<dt><a href=#Q4.2>
+Q4.2*: How can MIDI files be played from Netscape?
+</a>
+<dt><a href=#Q4.3>
+Q4.3: I'm planning to write a music player for AWE32.  How can I control
+    the AWE32 driver from my program?
+</a>
+</dl>
+
+</dl>
+The questions with asterisk(*) indicate the Linux specific problems.
+The questions with plus(+) indicate the FreeBSD specific problems.
+The minus(-) indicates the obsolete questions spefic for v0.3 or older driver.
+<p>
+
+<!---------------------------------------------------------------->
+
+<p><hr size=10><p>
+
+<h2><a name=Q1>
+1. GENERAL NOTES
+</h2>
+
+<h3><a name=Q1.1>
+Q1.1: What is awedrv?  What can I do with this?
+</h3><p>
+
+Awedrv is the sound driver extension to OSS/Free (aka USS-Lite or VoxWare)
+for AWE32 and its compatible wave synthesizer cards (SB32 and AWE64 series) by
+CreativeLabs.
+This driver provides a basic way to control Emu8000 chip on AWE32
+board through <code>/dev/sequencer</code> and <code>/dev/sequencer2</code>
+devices as well as other
+synth drivers like FM-OPL3 and GUS wave drivers.
+Also from driver v0.3, awedrv behaves as a GUS compatible driver, too.
+(The module players use this feature.)
+You can play midi and module files using some sequencer programs
+listed below.
+<p>
+
+The current driver is distributed both as a lowlevel driver to
+OSS/Free with Linux 2.1.x, 2.0.x kernels, and as a patch to OSS/Free-3.0.x
+(aka VoxWare) with Linux 1.2.x kernels and FreeBSD.
+Both environments are confirmed to work fine.
+However a little attention is necessary to use this driver on PnP cards.
+See <a href=#Q2.3>Q2.3</a>, <a href=#Q2.4>Q2.4</a> and
+<a href=#Q2.8>Q2.8</a> for installation on PnP cards.
+<p>
+
+The programs supporting awedrv are:
+<ul>
+<li> MIDI Sequencers
+<ul>
+<li> <a href=http://bahamut.mm.t.u-tokyo.ac.jp/~awedrv/#MIDI>drvmidi</a>,
+MIDI player program (<code>awemidi-0.4.x.tar</code>)
+<li> <a href=http://playmidi.openprojects.net/>playmidi</a>,
+ supported officially from v2.4
+<li> <b>Jazz</b> works without any patch (but not perfectly yet)
+<li> <b>Rosegarden</b> works using MIDI emulation device on awedrv-v0.4.3.
+</ul>
+<li> Games
+<ul>
+<li> <a href=http://bahamut.mm.t.u-tokyo.ac.jp/~awedrv/#Others>DOOM musserver</a> with a patch file
+(<code>musserver+awe0.4.diff</code>)
+</ul>
+<li> Module Players
+<ul>
+<li> <a href=http://puma.inf.ufpr.br/~claudio/xmp/>xmp</a>,
+officially supporting the AWE driver.
+<li> <a href=http://www.nyx.net/~arobinso/xgmod.html>gmod</a>,
+module player (supporting AWEDRV officially from v3.1)
+</ul>
+<li> Others
+<ul>
+<li> <a href=http://bahamut.mm.t.u-tokyo.ac.jp/~awedrv/#Others>Netscape 3.0 MIDI Plug-in</a>
+<li> <a href=http://bahamut.mm.t.u-tokyo.ac.jp/~awedrv/#Sequencers>vkbd</a>,
+a virtual keyboard on X
+<li> <a href=http://www.interlog.com/~gray/groove.html>super groove</a>,
+a unique sequencer program
+<li> <a href=http://www.wi.leidenuniv.nl/home/jwittema/awe/awe.html>AWEWavePlayer</a>,
+playing wave samples through Emu8000
+<li> <a href=http://www.floot.demon.co.uk/sfvbm/index.html>SFVbm</a>,
+the soundfont and virtual bank manager
+</ul>
+</ul>
+<p>
+
+<p><hr><p>
+
+<h3><a name=Q1.2>
+Q1.2: From where can I download AWE32 sound driver for Linux and FreeBSD?
+</h3><p>
+
+You can download from my web page:
+<center>
+<a href=http://bahamut.mm.t.u-tokyo.ac.jp/~iwai/awedrv/index.html>
+<i>http://bahamut.mm.t.u-tokyo.ac.jp/~iwai/awedrv/index.html</i></a>
+</center>
+<p>
+
+Also the following mirroring sites are available:
+<ul>
+<li> UK - Linux Sources -
+(<a href=http://www.lpsg.demon.co.uk/awe32.html>
+<i>http://www.lpsg.demon.co.uk/awe32.html</i></a>)
+<li> Brasil - Mirror of this page -
+(<a href=http://www.brasil.enemy.org/~claudio/awedrv>
+<i>http://www.brasil.enemy.org/~claudio/awedrv</i></a>)
+<li> Free BSD port -
+(<a href=http://multiverse.com/~rhh/awedrv/>
+<i>http://multiverse.com/~rhh/awedrv/</i></a>)
+</ul>
+<p>
+
+<p><hr><p>
+
+<h3><a name=Q1.3>
+Q1.3: Does awedrv work on my AWE64 card?
+</h3><p>
+
+Yes.  It works as a AWE32 compatible driver, but the software synthesizer
+is not supported.  So only 32 voices (30 voices when DRAM is on board)
+are available.
+<p>
+
+<p><hr><p>
+
+<h3><a name=Q1.4>
+Q1.4: How can I play my midi files using awe driver?  What configuration is necessary?
+</h3><p>
+
+To play a sound using awedrv, you need awesfx utility to load samples on the driver,
+and midi player programs which support awedrv.
+Basically, awedrv doesn't have any sound information in it at beginning.
+So, users must prepare their own SoundFont files
+using sfxload program (included in awesfx utils).
+This procedure is necessary even for ROM sounds
+(see <a href=#Q3.3>Q3.3</a>).
+Awesfx utility can be downloaded also from the web site above
+(<a href=#Q1.2>Q1.2</a>).
+<p>
+
+To load the SoundFont file onto the AWE driver,
+use sfxload utility.
+For example, to load your GM SoundFont file <code>synthgm.sbk</code>,
+<pre>
+	% sfxload synthgm
+</pre>
+Note: when you're using the older version of driver and utilities
+than ver.0.4, the additional option '<code>-i</code>' is required.
+This option means to remove all samples on the driver
+before loading this sample.
+<p>
+
+Now you can hear your midi files by a midi player like
+drvmidi (distributed in awemidi package).
+<pre>
+	% drvmidi sample.mid
+</pre>
+See <a href=#Q3.4>Q3.4</a> to how to use specified SBK or SF2 files
+with a midi file.
+<p>
+
+The new drvmidi (v0.4.0) has a function of "dynamic loaindg" of samples
+on demand.  This enables to play most of MIDI files with 2MB GM/GS soundfonts
+on only 512kB DRAM soundcards.
+<pre>
+	% drvmidi -L 2mbgmgs sample.mid
+</pre>
+See <a href=#Q3.12>Q3.12</a> and <a href=#Q3.13>Q3.13</a> for details.
+<p>
+
+<p><hr><p>
+
+<h3><a name=Q1.5>
+Q1.5: How can I play my .MOD files using awe driver?  What configuration is necessary?
+</h3><p>
+
+So far, some module players are available (see <a href=#Q1.1>Q1.1</a>).
+Both xmp and gmod support awedrv as default.
+See the installation instruction for more details.
+<p>
+
+Note: both programs watches read selection of the sequencer device.
+To support this,
+you need to activate MIDI input interface on SB16 driver
+when configuring the sound module.
+<p>
+
+<!---------------------------------------------------------------->
+
+<p><hr size=10><p>
+
+<h2><a name=Q2>
+2. INSTLLATION
+</h2><p>
+
+<h3><a name=Q1.6>
+Q2.1*: How to install awedrv on my linux kernel?
+</h3><p>
+
+See <code>INSTALL.awe</code> file in awedrv source package for details.
+Basically, you only need to run <code>install.sh</code> script
+on the awedrv source directory as root user.
+<pre>
+	% su
+	# sh ./install.sh
+</pre>
+Then, reconfigure the kernel options.
+See <a href=#Q2.2>Q2.2</a> about which options to be set.
+<pre>
+	# cd /usr/src/linux
+	# make xconfig
+		<i>or</i>
+	# make menuconfig
+</pre>
+Now, remake and install the kernel and modules.
+<pre>
+	# make
+	# make modules; make modules_install
+</pre>
+<p>
+
+<p><hr><p>
+
+<h3><a name=Q2.2>
+Q2.2*: What options should be set to configure sound module for AWE32 on linux?
+</h3><p>
+
+Basically, to configure awedrv, say <i>Yes</i> only to
+"lowlevel sound driver support" and "AWE32 wave synth".
+(If you're using OSS/Free-3.0.x (aka VoxWare), only the latter question will appear.)
+On AWE32 board, all transfers are done through I/O ports (not DMA),
+and awedrv probes these I/O ports automatically, so no need to specify
+any address or IRQ at configuration.
+<p>
+
+Of course, you may want other functions of SoundBlaster
+like playing and recording digital sound, FM synthesizer, and mixer support.
+Awedrv is only an enhancement to control Emu8000 synthesizer, and
+such functions are supported by other SB drivers.
+So better to keep <i>Yes</i> for all other SB16 options as well.
+<p>
+
+In my case, the sound part of <code>.config</code> file looks like:
+<pre>
+#
+# Sound
+#
+CONFIG_SOUND=m
+# CONFIG_PAS is not set
+CONFIG_SB=y
+CONFIG_ADLIB=y
+# CONFIG_GUS is not set
+# CONFIG_MPU401 is not set
+# CONFIG_UART6850 is not set
+# CONFIG_PSS is not set
+# CONFIG_GUS16 is not set
+# CONFIG_GUSMAX is not set
+# CONFIG_MSS is not set
+# CONFIG_SSCAPE is not set
+# CONFIG_TRIX is not set
+# CONFIG_MAD16 is not set
+# CONFIG_CS4232 is not set
+# CONFIG_MAUI is not set
+CONFIG_AUDIO=y
+CONFIG_MIDI=y
+CONFIG_YM3812=y
+SBC_BASE=220
+SBC_IRQ=7
+SBC_DMA=1
+SB_DMA2=7
+SB_MPU_BASE=300
+SB_MPU_IRQ=-1
+DSP_BUFFSIZE=65536
+CONFIG_LOWLEVEL_SOUND=y
+# CONFIG_ACI_MIXER is not set
+CONFIG_AWE32_SYNTH=y
+</pre>
+<p>
+
+BTW, please do not copy these values directly to your kernel.
+IRQ and DMA numbers of SB card may be different on each machine.
+In usual cases, MPU base address may be 0x330.  I set this value as different
+one to avoid confliction between SCSI card.
+(The setting in <a href=#Q2.3>Q2.3</a> is 0x330 because this is Neal's machine.)
+<p>
+
+<p><hr><p>
+
+<h3><a name=Q2.3>
+Q2.3*: The linux sound driver can't detect my SB32-PnP card.  Why?
+</h3><p>
+
+This is a problem in PnP initialization.
+Because the original Linux kernels don't support initialization of PnP cards yet,
+some special treatment is necessary before loading sound driver.
+There're a couple of ways to solve this:
+<ol>
+<li>use Linux PnP driver
+<li>use PnP utilities like ISA PnP Tools.
+<li>initialize PnP card on DOS and use <code>loadlin</code> to boot linux.
+</ol>
+<p>
+
+The Linux PnP driver enables to configure the PnP devices from kernel.
+This driver has been originally developed by Tom Lees.
+The current awedrv (0.4.3) includes the PnP driver interface so that
+no patch is necessary.
+See the PnP driver project homepage for more details,
+<center>
+<a href=http://www-jcr.lmh.ox.ac.uk/~pnp/>
+<i>http://www-jcr.lmh.ox.ac.uk/~pnp/</i></a>
+</center>
+<p>
+
+Neal Sanche (<i>neal@nsdev.ocunix.on.ca</i>) summarizes the procedure to
+install on PnP card by ISAPnP tool that:
+<p>
+
+<h4>Setting up SoundBlaster 32 PnP under Linux</h4>
+
+The SoundBlaster 32 PnP, like all plug and play devices, requires
+initialization before the Linux device driver is loaded in order to 
+function properly. This means that some form of initialization is
+required to hear sound. Currently many PnP projects (one at
+<a href=http://www.redhat.com/linux-info/pnp>
+<i>http://www.redhat.com/linux-info/pnp</i></a>) are being developed.
+I use a simple tool called ISAPnP. It is available at:
+<center><a href=http://www.redhat.com/linux-info/pnp/other.html>
+<i>http://www.redhat.com/linux-info/pnp/other.html</i>
+</a></center>
+<p>
+
+The steps you need to do in order to get sound working:
+<ol>
+<li> Compile your Linux kernel with module support, and compile the
+  sound driver as a module. This is important because you must load
+  the module <i>after</i> initializing your PnP card under Linux.
+
+<li> Somewhere in your startup scripts (in <code>rc.local</code>, or
+<code>rc.modules</code> in
+  a recent version of RedHat) you must initialize your sound card
+  with some tool. ISAPnP is easy to configure and seems very reliable.
+
+<li> Load the sound module. Set your mixer settings.
+</ol>
+<p>
+
+For example, this is how I initialize the SB32 PnP in my startup
+scripts.
+<pre>
+#!/bin/sh
+
+# initialize PnP devices
+if [ -x /sbin/isapnp ]; then
+  echo "Configuring PnP devices"
+  /sbin/isapnp /etc/isapnp.conf
+fi
+ 
+echo "Loading sound module"
+/sbin/modprobe -a sound
+</pre>
+<p>
+
+ISAPnP is quite an easy program to configure. Here is a copy of my
+<code>isapnp.conf</code> file. I used all of the defaults (from the SB manual)
+for ports and IRQ settings.<br>
+<b>DON'T FORGET TO ADD TWO I/O PORTS, 0xA20 and 0xe20, for WaveTable!
+These ports are never detected by pnpdump, but must be initialized.
+(See <a href=#Q2.4>Q2.4</a>)
+</b>
+<pre>
+(READPORT 0x0273)
+(ISOLATE)
+(IDENTIFY *)
+
+# Card 1: (serial identifier 6d 00 0e b0 52 44 00 8c 0e)
+# CTL0044 Serial No 962642 [checksum 6d]
+# Version 1.0, Vendor version 1.0
+# ANSI string --&gt;Creative SB32 PnP&lt;--
+#
+# Logical device id CTL0031
+#
+# Edit the entries below to uncomment out the configuration required.
+# Note that only the first value of any range is given, this may be changed if required
+# Don't forget to uncomment the activate (ACT Y) when happy
+
+(CONFIGURE CTL0044/962642 (LD 0
+# ANSI string --&gt;Audio&lt;--
+  (INT 0 (IRQ 5 (MODE +E)))
+  (DMA 0 (CHANNEL 1))
+  (DMA 1 (CHANNEL 5))
+  (IO 0 (BASE 0x0220))
+  (IO 1 (BASE 0x0330))
+  (IO 2 (BASE 0x0388))
+
+  (ACT Y)
+))
+
+# Logical device id CTL0021
+#
+# Edit the entries below to uncomment out the configuration required.
+# Note that only the first value of any range is given, this may be changed if required
+# Don't forget to uncomment the activate (ACT Y) when happy
+
+(CONFIGURE CTL0044/962642 (LD 2
+# ANSI string --&gt;WaveTable&lt;--
+  (IO 0 (BASE 0x0620))
+  (IO 1 (BASE 0x0a20))
+  (IO 2 (BASE 0x0e20))
+  (ACT Y)
+))
+
+# Logical device id CTL7001
+#
+# Edit the entries below to uncomment out the configuration required.
+# Note that only the first value of any range is given, this may be changed if required
+# Don't forget to uncomment the activate (ACT Y) when happy
+
+(CONFIGURE CTL0044/962642 (LD 3
+#     Compatible device id PNPb02f
+#     ANSI string --&gt;Game&lt;--
+#     Logical device decodes 16 bit IO address lines
+#         Minimum IO base address 0x0200
+#         Maximum IO base address 0x0200
+#         IO base alignment 1 bytes
+#         Number of IO addresses required: 8
+# (IO 0 (BASE 0x0200))
+# (ACT Y)
+))
+
+# Logical device id CTL0051
+#
+# Edit the entries below to uncomment out the configuration required.
+# Note that only the first value of any range is given, this may be changed if required
+# Don't forget to uncomment the activate (ACT Y) when happy
+
+(CONFIGURE CTL0044/962642 (LD 4
+#     ANSI string --&gt;StereoEnhance&lt;--
+#     Logical device decodes 16 bit IO address lines
+#         Minimum IO base address 0x0100
+#         Maximum IO base address 0x03f8
+#         IO base alignment 8 bytes
+#         Number of IO addresses required: 1
+  (IO 0 (BASE 0x0108))
+(ACT Y)))
+</pre>
+<p>
+
+That's all there is to it. In the future, the Linux kernel source will
+directory support Plug and Play, and there will be no need for the
+isapnp tool.
+<p>
+
+<p><hr><p>
+<h3><a name=Q2.4>
+Q2.4*: I installed ISA PnP tools, but still awedrv says "can't detect AWE32".
+</h3><p>
+
+Check WaveTable entries in your <code>/etc/isapnp.conf</code> file.
+AWE32 uses three I/O ports, normally 0x620, 0xa20, and 0xe20,
+but in the default ouput from <code>pnpdump</code> is
+lack of the last two pots (0xa20 and 0xe20).
+In such a case, you have to add them manually. For example,
+<pre>
+# Logical device id CTL0021
+(CONFIGURE CTL0044/962642 (LD 2
+# ANSI string --&gt;WaveTable&lt;--
+  (IO 0 (BASE 0x0620))
+  (IO 1 (BASE 0x0A20))
+  (IO 2 (BASE 0x0E20))
+  (ACT Y)
+))
+</pre>
+<p>
+
+See the ISA PnP FAQ page
+(<a href=http://www.roestock.demon.co.uk/isapnptools/isapnpfaq.html>
+<i>http://www.roestock.demon.co.uk/isapnptools/isapnpfaq.html</i>
+</a>)
+for details.
+<p>
+
+<p><hr><p>
+
+<h3><a name=Q2.5>
+Q2.5*: Can I load my GM file automatically on the sound driver module?
+</h3><p>
+
+Yes.  You can specify the command to be executed after loading modules
+in your <code>/etc/conf.modules</code> file with <code>post-install</code>
+command.
+For example,
+<pre>
+post-install sound	/usr/local/bin/sfxload synthgm
+</pre>
+Similary, it's possible to set the mixer volume automatically,
+<pre>
+post-install sound	/usr/local/bin/setmix -f /etc/mixrc;\
+			/usr/local/bin/sfxload synthgm
+</pre>
+<p>
+
+<p><hr><p>
+
+<h3><a name=Q2.6>
+Q2.6*: I can't install properly on my linux-2.0.0 from Slackware 96.
+</h3><p>
+
+Slackware 96 initially installs Linux-2.0.0 system.
+The AWE driver doesn't support this version of sound driver.
+So please update the kernel version to the newer one.
+Sorry for incovenience...
+<p>
+
+<p><hr><p>
+
+<h3><a name=Q2.7>
+Q2.7+: How to install awedrv on my FreeBSD kernel?
+</h3><p>
+
+See the document <code>INSTALL.frbsd</code> in awedrv source package
+for details.
+Also, if you're using a PnP sound card like SB32 PnP or AWE64,
+refer to <a href=#Q2.8>Q2.8</a>.
+<p>
+
+<ol>
+<li> Copy all source files to the system directory
+  <code>/usr/src/sys/i386/isa/sound</code>.
+<li> Edit <code>awe_config.h</code> if necessary.<br>
+  If you're using awedrv ver.0.4 or newer,
+  you don't need to touch <code>AWE_MAX_SAMPLES</code> and
+  <code>AWE_MAX_INFOS</code>.
+<li> Append an entry to kernel configuration file.
+<pre>
+          device awe0     at isa? port 0x620 
+</pre>
+<li> Recompile and install a new kernel.
+</ol>
+<p>
+
+<p><hr><p>
+
+<h3><a name=Q2.8>
+Q2.8+: How to use my PnP card on FreeBSD system?
+</h3><p>
+
+See the how-to document by Takuya Koumoto (<i>takuya-k@is.aist-nara.ac.jp</i>)
+for more details (written in Japanese).
+<p>
+
+<ol>
+<li> Get FreeBSD PnP package
+(<code>FreeBSD-ISA_PnP_June8.tar.gz</code>)
+<li> Run a program <code>pnpinfo</code> in it.
+You may have an output like following:
+<pre>
+	Checking for Plug-n-Play devices...
+	Trying Read_Port at 203
+	Trying Read_Port at 243
+	.. (snip) ..
+	Card assigned CSN #1
+	Board Vendor ID: CTL009d
+	Board Serial Number: 10005fdc
+	PnP Version: 1.0
+	Vendor Version: 32
+	Device Description: Creative SB AWE64 PnP
+	Logical Device ID: CTL0042 (42008c0e)
+	Device Description: Audio
+	Start Dependent Function
+	.. (snip) ..
+</pre>
+Remember the serial number of your sound card in the message.
+In this example, it's <code>10005fdc</code>.  This value must be different
+on each sound card.
+<li> Applay a patch (<code>kernel.patch.2.2-current</code>) included in
+the package to kernel source tree.
+<pre>
+	# cd /usr/src/sys
+	# patch -p0 < kernel.patch.2.2-current
+</pre>
+<li> Edit <code>/usr/src/sys/i386/isa/pnp.c</code>:<br>
+Replace the line 34
+<pre>
+	#include "pnp.h"
+</pre>
+with
+<pre>
+	#include "i386/isa/pnp.h"
+</pre>
+and the part from line 50 to 103 with the following
+<pre>
+  {
+    0x10005fdc,             /* Serial Number */
+    2,             /* Logical Device Number */
+    {
+      { -1, -1 },     /* Primary IRQ Number, Type */
+      { -1, -1 }      /* Second  IRQ Number, Type */
+    },
+    { -1, -1 },               /* DRQ Number */
+    {
+      0x620,          /* Ports 1 */
+      0xa20,          /* Ports 2 */
+      0xe20,          /* Ports 3 */
+      -1,          /* Ports 4 */
+      -1,          /* Ports 5 */
+      -1,          /* Ports 6 */
+      -1,          /* Ports 7 */
+      -1,          /* Ports 8 */
+    },
+    {
+      { -1, -1, -1 }, /* Memory desc0 - base, ctrl, range */
+      { -1, -1, -1 }, /* Memory desc1 - base, ctrl, range */
+      { -1, -1, -1 }, /* Memory desc2 - base, ctrl, range */
+      { -1, -1, -1 }  /* Memory desc3 - base, ctrl, range */ 
+    }
+  }
+</pre>
+Please put the serial number of your card on the first item.
+<li> Copy source files of awedrv.
+Do it as well as in <a href=#Q2.7>Q2.7</a>.
+<li> Edit kernel config file.
+Append both
+<pre>
+	controller      pnp0
+</pre>
+and
+<pre>
+	device awe0     at isa? port 0x620 conflicts
+</pre>
+</ol>
+<p>
+
+<!---------------------------------------------------------------->
+
+<p><hr size=10><p>
+
+<h2><a name=Q2>
+3. PLAYING MIDI FILES
+</h2><p>
+
+<h3><a name=Q3.1>
+Q3.1: I can't hear anything using drvmidi or playmidi.  Why?
+</h3><p>
+
+The AWE driver itself doesn't have any sound information in it.
+You need to load the soundfont file at first.
+See <a href=#Q1.4>Q1.4</a> how to load soundfont files.
+<p>
+
+<p><hr><p>
+
+<h3><a name=Q3.2>
+Q3.2: I have no DRAM in my card - can I still play midi files with it?
+</h3><p>
+
+<i>Chris Wedgwood &lt;chris@cyphercom.com&gt; answers:</i><p>
+
+Yes. You can use the default ROM fonts that are built into the card.
+However, it won't necessarily sound very good.
+<p>
+
+<p><hr><p>
+
+<h3><a name=Q3.3>
+Q3.3: How can I play midi files using the default ROM fonts that come with
+   my card?
+</h3><p>
+
+<i>Chris Wedgwood &lt;chris@cyphercom.com&gt; answers:</i><p>
+
+You have to load the ROM fonts into the card using sfxload.
+To do this you need a file called '<code>synthgm.sbk</code>'
+(or <code>synthgm.sf2</code>) which is installed under Windows95
+and presumably Windows 3.1.
+<p>
+
+There always seems to be a copy in the 'windows system'
+directory, and often another copy amongst the other installed Creative Labs files. The windows system directory is usually <code>\WINDOWS\SYSTEM</code>.
+<p>
+
+For the 'purists' who don't have Windows installed - you will probably
+have to try and get this file from elsewhere, as it is not stored on the
+CDROM in any useful form. (At least not on mine). It appears to be
+archive in the <code>win95/sfbank/sfbank.lib</code> file
+- but I have no details on the format of this).
+<p>
+
+To load the ROM fonts type:
+<pre>
+	% sfxload synthgm.sbk
+</pre>
+
+Note: you will have to prepend a path if <code>synthgm.sbk</code>
+is not in the current working directory or search path directories.
+If drum sounds are small, you can tune it via <code>-A</code> option
+(see <a href=#Q3.11>Q3.11</a>).
+<p>
+
+The size of the file is about 35k, it compresses down to about 14k, so
+obtaining it via FTP or email shouldn't be a big problem - although there
+maybe copyright issues involved. I wouldn't know, I'm not a lawyer.
+<p>
+
+<p><hr><p>
+
+<h3><a name=Q3.4>
+Q3.4: I have a midi file with a specified SBK file.  How can I listen to
+    it? 
+</h3><p>
+
+Just load the SBK file after GM (or GS) presets.
+At first, load GM font. (For the older version (v0.3.x), the option <code>-i</code> is necessary.)
+<pre>
+	% sfxload synthgm
+</pre>
+Then, append SBK font after it.
+If you've already loaded other samples, the additional option <code>-x</code>
+is required.
+<pre>
+	% sfxload -b 1 foo.sbk
+</pre>
+Don't forget to add a command option "</code>-b 1</code>"
+in this case (see <a href=#Q3.5>Q3.5</a>).
+<p>
+
+Now you can hear your midi file. Enjoy.
+<pre>
+	% drvmidi foo.mid
+</pre>
+<p>
+
+<p><hr><p>
+
+<h3><a name=Q3.5>
+Q3.5: Drvmidi plays strange sounds when I use an addtional SoundFont file.
+</h3><p>
+
+Most of user-defined SoundFont files are designed to be loaded on
+bank 1.  Try the option <code>-b 1</code> of <code>sfxload</code>
+for such a sample (see <a href=#Q3.4>Q3.4</a>).
+<p>
+
+<p><hr><p>
+
+<h3><a name=Q3.6>
+Q3.6: I changed chorus and reverb modes using drvmidi, but nothing
+    changed.  Why?
+</h3><p>
+
+To activate chorus and reverb modes, you have to specify non-zero
+values for these effects at loading samples via
+<code>-c</code> and <code>-r</code> options of <code>sfxload</code>,
+respectively.
+<pre>
+	% sfxload -c 30 -r 20 synthgm
+</pre>
+<p>
+
+<p><hr><p>
+
+<h3><a name=Q3.7>
+Q3.7: Many clicking noises can be heard in some midi files.
+</h3><p>
+
+If this happens when panning status changes, it is due to the
+restriction of Emu8000 chip.  Try <code>-P</code> option with drvmidi.
+This option suppress the realtime pan position change.
+Otherwise, it may be a bug.
+<p>
+
+<p><hr><p>
+
+<h3><a name=Q3.8>
+Q3.8: Sounds are too loud!
+</h3><p>
+
+I think so, too...
+The total volume of the samples can be changed
+by using <code>-V</code> option at loading.
+<pre>
+	% sfxload -V 40 synthgm
+</pre>
+The value is in percent with a default of 70%.
+<p>
+
+If you're using linux, the mixer volumes can be set at loading the module
+automatically (see <a href=#Q2.5>Q2.5</a>).
+<p>
+
+<p><hr><p>
+
+<h3><a name=Q3.9>
+Q3.9: I have GUS patch files.  Can I use these samples?
+</h3><p>
+
+Yes.
+For example, to load a patch <code>gunshot.pat</code> onto preset #127,
+run
+<pre>
+	% gusload -p 127 gunshot.pat
+</pre>
+<p>
+
+<p><hr><p>
+
+<h3><a name=Q3.10>
+Q3.10: A strange piano sound is heard instead of drum (or other) sounds.
+</h3><p>
+
+Some MIDI files use the channel 16 as a drum channel.
+while only the channel 10 is accepted as a drum in drvmidi
+as default.
+(In the case of GS file, it may vary according to system exclusive messages.)
+To change the drum state, 
+use the option <code>-D</code>.
+The positive argument means to turn on the drum channel,
+but the negative argument means to turn off.
+For example, '<code>-D 16</code>' option specifies the channel 16
+as a drum channel,
+and '<code>-D -10</code>' option
+reserves the channel 10 as a normal channel.
+<p>
+
+Another possibility is the problem of multi-part support.
+Drvmidi treats tracks over 16 as second MIDI part.
+This feature is suppressed using '<code>-T -1</code>' option with drvmidi.
+Then all tracks are assumed as one MIDI part.
+<p>
+
+<p><hr><p>
+
+<h3><a name=Q3.11>
+Q3.11: Drum sounds seem smaller than Windows sound.
+</h3><p>
+
+If you're using v0.4.2 driver and sfxload, try <code>-A</code> option of
+sfxload program.
+This is an option to control the sensitivity of attenuation level of each
+instrument, and it takes a positive (float) digit value.
+Generally, the smaller value makes drum sounds louder.
+I feel the value 2.0 is better than the default state,
+but to keep compatibility with older versions, it's set to 10.0 as default.
+<pre>
+	% sfxload -A 2 synthgm.sbk
+</pre>
+<p>
+
+The v0.4.3 driver (and sfxload) uses different way of parameter calculation.
+It sounds more similar to DOS/Windows, but a little bit duller than the
+former version.  The volume calculation method can be switched
+by <code>aweset</code> utility.
+<pre>
+	% aweset newvolume off
+</pre>
+Note that drvmidi will change this switch by itself, so aweset doesn't affect
+its sounds at all.  The sound quality via playmidi will be influenced, though.
+Also, there is a command option <code>-C</code> in sfxload
+to keep the compatibility with the older versions.
+<p>
+
+<p><hr><p>
+
+<h3><a name=Q3.12>
+Q3.12: What is "dynamic loading" of drvmidi?
+</h3><p>
+
+This is a new feature added from ver.0.4.0 to load the required fonts
+in a soundfont file "on demand" for each MIDI file.
+drvmidi looks up each instrument used in the file before playing, then
+it invokes sfxload to load only the required samples.
+This function enables us to to play with larger samples on samller soundcard
+RAM size.
+In most cases, you can play MIDI files via 2MB GM/GS soundfonts
+(<code>2mbgmgs.sf2</code>) on 512kB DRAM.
+Of course, it's possible to play 8MB fonts on 2MB DRAM,
+or 12MB fonts on 8MB DRAM
+(though it'll take a bit long time to load the fonts).
+Many soundfont files are distributed on web sites.
+I listed them up on the
+AWE driver's web page,
+<center>
+<a href=http://bahamut.mm.t.u-tokyo.ac.jp/~iwai/awedrv/index.html#SoundFonts>
+<i>http://bahamut.mm.t.u-tokyo.ac.jp/~iwai/awedrv/index.html#SoundFonts</i>
+</a>
+</center>
+The 2MB font above is stored on Creative's web site, and on the AWE Hot Spot, too.
+Also, there're 2MB and 4MB fonts are included in AWE64 distribution.
+AWE64 users can try it.
+<p>
+
+To use dynamic loading, the following precodure is necessary.
+<ol>
+<li> Load ROM fonts previously.  (<b>DONT'T FORGET THIS!</b>)
+<pre>
+	% sfxload synthgm
+</pre>
+<li> Specify the soundfont file to be used via <code>-L</code> (or <code>--dynamic</code>) option in
+the command line of drvmidi.
+<pre>
+	% drvmidi -L 2mbgmgs foo.mid
+</pre>
+</ol>
+<p>
+
+Sometimes, drvmidi fails to load all samples due to out of memeory.
+In such a case, the following message will appear:
+<pre>
+	preload: couldn't load all fonts.
+</pre>
+drvmidi uses ROM fonts instead of the samples which are not loaded successfully.
+<p>
+
+The dynamic loading fonts can be specified in the default setting file.
+See <a href=#Q3.13>Q3.13</a>.
+<p>
+
+<p><hr><p>
+
+<h3><a name=Q3.13>
+Q3.13: I want to set up default options.
+</h3><p>
+
+The command line options of sfxload and drvmidi can be specified
+in the resource files in advance.
+The resource file of sfxload are
+<code>/etc/sfxloadrc</code> and <code>~/.sfxloadrc</code>,
+and
+those of drvmidi are
+<code>/etc/drvmidirc</code> and <code>~/.drvmidirc</code>,
+repsectively.
+If both files are specified, the latter one is used.
+<p>
+
+The sfxload resource file has the following format:
+<pre>
+	fontname	options..
+	fontname	options..
+</pre>
+The first argument is the soundfont name, and the remaining arguments
+are command line options to be specified.
+The font name "<code>default</code>" is special, and means that the
+default options to be used if any font name doesn't match the given soundfont.
+Both short and long options are available.
+For example:
+<pre>
+	default	--sense=10 --atten=32 -V100
+	synthgm	--sense=2 -V100
+</pre>
+<p>
+
+The format of drvmidi resource file is similar to the above.
+However, the valid font name is only "<code>default</code>".
+Though drvmidi accepts both short and long options, the option editor
+in tkmidi (featured from v0.4.2) can only handle long options.
+For example:
+<pre>
+	default --dynamic=2mbgmgs
+</pre>
+With this function, you can use dynamic loading without specifying
+command line options at each time.
+<p>
+
+<p><hr><p>
+
+<h3><a name=Q3.14>
+Q3.14: Can I play a GS midi file for Roland SC88?
+</h3><p>
+
+The new drvmidi ver.0.4.2 can emulate the SC88 specific controls;
+a couple of sysex controls
+including multi part, and some controls like TVF and EG.
+As default, the sysex messages of multi-part mode and master volume control
+are supported.
+Regardless of received sysex status, you can turn on the multi part mode
+by specifying the option <code>--multipart=on</code>.
+<p>
+
+The effect controls to TVF, EG, etc. are not emulated as default status.
+You need to add an option <code>--usefx=on</code> to drvmidi.
+Note that this function is still experimental and inaccurate.
+The sound effect varies with the soundfont file, so you should
+adjust parameters for your using font file.
+<p>
+
+Also, You can edit the options and effect parameters above
+via the option editor in tkmidi.
+<p>
+
+<p><hr><p>
+<h3><a name=Q3.15>
+Q3.15: Can I play a midi file with Yamaha XG format?
+</h3><p>
+
+The new drvmidi (v0.4.2) accepts the bank control defined in XG format.
+However, since the drum and sfx presets in XG format are partly different from
+one in GS, some preset remapping is required to play back properly with
+the usual GS soundfont file.
+Drvmidi avoids this problem by assigning the XG drum and sfx presets to
+the banks which are not used in GS.
+To enable this feature, add the option <code>--xgmap=on</code>.
+<p>
+
+To play back this new bank, the driver needs to duplicate the sounds
+from original GS banks.
+This can be solved easily using the preset mapping,
+which is newly supported in awedrv-0.4.2.
+For example, if you're using synthgs.sbk, load two bank files after it.
+(These bank files are included in the awesfx / sfxload package.)
+<pre>
+	% sfxload synthgs
+	% sfxload -b0 xgsfx.bnk
+	% sfxload -b0 xgdrum.bnk
+</pre>
+Then, the XG banks are mapped from the original GS fonts without
+using any extra DRAM.
+<p>
+
+The procedure above becomes easy by writing a <a href=#Q3.17>virtual bank file</a>.
+For example, using the bank file (xgdefault.bnk) contains the following,
+<pre>
+	default synthgs.sbk
+	include xgsfx.bnk
+	include xgdrum.bnk
+</pre>
+just load this bank file once, and all things above will be done.
+<pre>
+	% sfxload xgdefault.bnk
+</pre>
+Also, you need to make the similar bank file to use the dynamic loading
+function in drvmidi:
+<pre>
+	default 2mbgmgs.sf2
+	include xgsfx.bnk
+	include xgdrum.bnk
+</pre>
+By specifying this bank file in the option <code>--dynamic</code>,
+drvmidi loads the appropriate fonts automatically even both for GS
+and XG format.
+<p>
+
+<p><hr><p>
+<h3><a name=Q3.16>
+Q3.16: The tone of ver.0.4.3 seems different from others..
+</h3><p>
+
+Yes, the latest version 0.4.3 uses the different volume parameter calculation.
+Please refer to <a href=#Q3.11>Q3.11</a>.
+<p>
+
+<p><hr><p>
+<h3><a name=Q3.17>
+Q3.17: What is a virtual bank file?
+</h3><p>
+
+The virtual bank file is a text file describing the list of presets, banks
+and notes from multiple soundfont files.
+By using a virtual bank file, you can load a part of sounds from one soundfont
+file and another part from other soundfont files without re-creating a whole
+soundfont file.
+On the other words, it enables to replace or add one instrument with other
+sounds (even one note in drumset!).
+<p>
+
+The format of virtual bank file is as follows:
+<pre>
+source:destination:file instr-name
+</pre>
+The source and destination are the instrument map
+to specify the instruments to be replaced, and have the following format:
+<pre>
+preset/bank/keynote
+</pre>
+The preset is the MIDI program number (from 0 to 127), and the bank is
+the MIDI bank number (from 0 to 128).  The bank #128 is regarded as a
+drumset.  The keynote is the MIDI key note number (from 0 to 127).
+If keynote is omitted, the whole instrument will be replaced.
+If bank is omitted, all matching instruments with preset will be replaced.
+If preset has an asterisk(*) or number -1, the matching bank will be replaced.
+<p>
+
+The virtual bank will replace the instruments specified by source field
+with the instruments by destination field.
+The file field is a soundfont file name to be loaded.
+Note that if you use the identical soundfont file several times in one virtual
+bank file, you must give also the identical name here.
+The files are searched through the path given to sfxload.
+<p>
+
+The instr-name field is an optional field to specify the name of this
+instrument.  In the current version of sfxload, this field is ignored.
+<p>
+
+The virtual bank file accepts also the following format:
+<pre>
+source:destination instr-name
+</pre>
+Unlike the previous case, this format includes no file field.
+This enables the preset mapping (linking) and works like a symbolic link
+of file operation.  The source instrument is referred also as the destination
+instrument.  The actual destination instrument needs not exist.
+<p>
+
+There are two special command directives:
+<ul>
+<li> <code>include filename</code><br>
+This command simply includes the specified file in the current virtual bank
+file.
+<li> <code>default filename</code><br>
+This command specifies the default soundfont file.
+The default soundfont is referred when no matching instruments are found
+in other virtual bank definitions.
+</ul>
+<p>
+
+<!---------------------------------------------------------------->
+
+<p><hr size=10><p>
+
+<h2><a name=Q4>
+4. PROGRAMMING &amp; MISCELLANEOUS
+</h2><p>
+
+<h3><a name=Q4.1>
+Q4.1: The sounds of module player are very weird.  Why?
+</h3><p>
+
+This happens when not enough DRAM is on the AWE32 card.
+Please upgrade memories on your card.
+<p>
+
+Also, the old drivers have a bug in sample loop addresses.
+Please use the latest driver (v0.3.3e or later).
+<p>
+
+<p><hr><p>
+
+<h3><a name=Q4.2>
+Q4.2*: How can MIDI files be played from Netscape?
+</h3><p>
+
+If you're using..
+<dl>
+<dt> Netscape 3.0
+<dd>
+The plug-in for Netscape 3.0 is now available.
+Please install MIDI plug-in package, and check the helper list
+in Options menu.  See the document in this package for more details.
+<p>
+
+The plug-in with MIDI control panel causes a bus error when displaying
+the directory page (i.e. file://<i>directory</i>/).  To avoid this,
+you need to preload the plug-in file before starting Netscape.
+It would be convenient to replace netscape as a wrapper script like
+<pre>
+#!/bin/sh
+LD_PRELOAD=$HOME/.netscape/plugins/npmidi.so; export LD_PRELOAD
+exec /usr/local/bin/netscape
+</pre>
+This bug doesn't appear on the plug-in without control panel window.
+<p>
+
+Also, if you already add mime types as below, you should edit
+these configuration files manually.  Netscape only appends its list.
+<p>
+
+<dt> Other browsers
+<dd>
+Add a new mime type for MIDI files by adding the following to your
+<code>~/.mime.types</code> file:
+<pre>
+audio/x-midi	exts=mid,midi
+</pre>
+Then specify the application for this type by adding to <code>~/.mailcap</code>:
+<pre>
+audio/x-midi; drvmidi %s
+</pre>
+Of course, you can choose your favorite MIDI players instead of this.
+</dl>
+<p>
+
+<p><hr><p>
+
+<h3><a name=Q4.3>
+Q4.3: I'm planning to write a music player for AWE32.  How can I control
+    the AWE32 driver from my program?
+</h3><p>
+
+See <a href=awedrv-prog.html>the AWEDRV programming notes</a>
+for control of awedrv device.
+<p>
+
+From ver.0.2, awedrv accepts the GUS compatible patches and
+hardware controls, so you can play module players using GUS driver
+like gmod by a slight modification.
+<p>
+
+For example, to use gmod for awedrv, just change the line 62 of
+<code>Sequencer.c</code> for detection of synthesizer card to accept
+subtype 0x20 like
+<pre>
+if (info.synth_type == SYNTH_TYPE_SAMPLE
+    && (info.synth_subtype == SAMPLE_TYPE_GUS||info.synth_subtype==0x20))
+    gus_dev = i;
+</pre>
+(<code>0x20</code> means <code>SAMPLE_TYPE_AWE32</code> defined in <code>awe_voice.h</code>.)
+<p>
+
+<!---------------------------------------------------------------->
+<p><hr size=10><p>
+
+</body>

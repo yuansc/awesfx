@@ -1,0 +1,115 @@
+.TH SFXTEST 1 "Sun Mar  2 09:57:48 GMT 1997" "awesfx 0.3.3" "AWE32 manual"
+.\" NAME should be all caps, SECTION should be 1-8, maybe w/ subsection
+.\" other parms are allowed: see man(7), man(1)
+.SH NAME
+sfxtest \- test utility for the Linux AWE32 driver
+.SH SYNOPSIS
+.B sfxtest
+.I [command parameters] ...
+.SH "DESCRIPTION"
+This manual page documents briefly the
+.BR sfxtest
+command.
+This manual page was written for the Debian GNU/Linux distribution
+(but may be used by others), because the original program does not
+have a manual page.
+.PP
+.B sfxtest
+is a program designed for testing that the Linux AWE32 driver has been set up
+properly, and that the appropriate patch files are loaded correctly (using
+sfxload(1), or gusload(1)).
+.SH OPTIONS
+The program takes a series of commands followed by arguments. It accepts the
+following commands:-
+.TP
+.B X
+Instructs the program to use channel control mode.
+.TP
+.B x channel
+Changes the channel being operated on to
+.I channel
+\.
+.TP
+.B b bank
+Changes the bank being used to
+.I bank
+\.
+.TP
+.B p program
+Changes the program (instrument) being used to
+.I program
+\.
+.TP
+.B n note velocity
+Sends a noteon command for note
+.I note
+at velocity
+.I velocity
+\.
+.TP
+.B k
+Kills a note (sends noteoff).
+.TP
+.B K note
+Kills the note
+.I note
+(used for channel mode).
+.TP
+.B r value
+Sets the pitch sense to
+.I value
+\.
+.TP
+.B w value
+Sets the putch wheel to
+.I value
+.TP
+.B t
+.I time
+Waits for
+.I time
+hundredths of a second.
+.TP
+.B c value
+Sets the panning value to
+.I value
+.TP
+.B v note velocity
+Changes the key pressure of
+.I note
+to velocity
+.I velocity
+\.
+.TP
+.B D mode
+Sets the debug mode of the driver to
+.I mode
+. Higher values of mode are more verbose.
+.TP
+.B C mode
+Sets the chorus type to
+.I mode
+\.
+.TP
+.B R mode
+Sets the reverb type to
+.I mode
+\.
+.TP
+.B F parameter value
+Sends an effect command type
+.I parameter
+, with value
+.I value
+\.
+.TP
+.B I
+(Re-)Initializes the AWE32 driver and EMU8000 chip.
+.SH "SEE ALSO"
+sfxload(1), gusload(1), drvmidi(1)
+.SH AUTHOR
+This manual page was written by Tom Lees <tom@lpsg.demon.co.uk>,
+for the Debian GNU/Linux system.
+
+The AWE32 driver and utilties were written by Takashi Iwai
+<iwai@dragon.mm.t.u-tokyo.ac.jp>.

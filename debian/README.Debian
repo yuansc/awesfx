@@ -1,0 +1,76 @@
+Default soundfont search path is /usr/share/sounds/sf2 in my packages,
+although /usr/share/sfbank and /usr/local/lib/sfbank will also work.
+Any other paths from the READMEs below may not work.
+
+- Ove Kaaven <ovek@arcticnet.no>
+
+
+
+****** README from unofficial awesfx 0.5.0a package by Nicos Panayides <anarxia@gmx.net>
+
+* Locally install soundfonts must be installed in
+/usr/local/share/sfbank or /usr/share/sfbank
+
+* To load a specific soundfont every time the emux module is loaded
+you can use modprobe to call (a)sfxload with the name of the soundfont.
+
+The following example is for the emu10k1 ALSA driver.
+
+Linux 2.6 (module-init-tools)
+-----------------------------
+- Create a new file in /etc/modprobe.d containing:
+
+install snd_emu10k1_synth /sbin/modprobe --ignore-install
+snd_emu10k1_synth;/usr/bin/asfxload 8mbgmsfx
+
+- Run: update-modules.
+
+Linux 2.4 (modutils)
+--------------------
+- Create a new file in /etc/modprobe containing:
+
+post-install snd_emu10k1_synth /usr/bin/asfxload 8mbgmsfx
+
+- Run: update-modules
+
+
+
+****** Old README.Debian from awedrv maintainer Tom Lees <tom@lpsg.demon.co.uk>
+
+Here is a current list (as of Wed Jun 25 12:21:16 BST 1997) of programs
+known to support the AWE32 driver:-
+
+	awe-*
+	xmp
+	gmod (with a tiny patch)
+	playmidi (version 2.5, currently in BETA)
+
+The debian package of xmp currently supports the AWE32 driver. I have also
+e-mailed a (3-line) patch to the gmod maintainer to add AWE32 support to
+gmod. NB that the latest AWE driver will support also any application which
+can write to an "external MIDI" source (most programs, including playmidi,
+etc.), although the quality of this output isn't quite as good as that from
+programs with dedicated AWE support, eg awe-midi.
+
+ Note about making packages support the AWE32 driver
+
+If you make packages which support the AWE32 driver directly, you should build
+it with "-I/usr/src/awedrv". Note that support for the AWE32 driver in its
+GUS emulation mode should be done by adding a line somewhere at the top:-
+
+#define SAMPLE_TYPE_AWE32 0x20
+
+This is also defined in awe_voice.h, but this way, you do not need to include
+awe_voice.h, and therefore do not depend on the AWE driver being installed.
+Then, later, you change the check of the synth type from something like this:-
+
+if (info.synth_type == SYNTH_TYPE_SAMPLE && info.synth_subtype ==
+	SAMPLE_TYPE_GUS)
+
+to
+
+if (info.synth_type == SYNTH_TYPE_SAMPLE && (info.synth_subtype ==
+	SAMPLE_TYPE_GUS || info.synth_subtype == SAMPLE_TYPE_AWE32))
+
+(This is from the AWE32 driver FAQ). You should try and do this for all
+programs which support the GUS driver.

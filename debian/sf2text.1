@@ -1,0 +1,77 @@
+.TH SF2TEXT 1 "Sun Mar  2 10:13:22 GMT 1997" "awesfx 0.3.3" "AWE32 manual"
+.\" NAME should be all caps, SECTION should be 1-8, maybe w/ subsection
+.\" other parms are allowed: see man(7), man(1)
+.SH NAME
+SF2TEXT \- program to convert SBK or SF2 (SoundFont) files to text format
+.SH SYNOPSIS
+.B sf2text
+.I "SoundFont [outputfile]"
+.br
+.B txt2sfx
+.I [\-Bv] [\-m mode] [\-d sf2file] textfile sfxfile
+.br
+.B sfxtext
+.I sfxfile
+.br
+.B gus2sfx
+.I [\-Bv] [\-m mode] [\-d sf2file] textfile sfxfile
+.SH "DESCRIPTION"
+This manual page documents briefly the
+.BR sf2text
+,
+.B txt2sfx
+,
+.B sfxtext
+, and
+.B gus2sfx
+commands.
+This manual page was written for the Debian GNU/Linux distribution
+(but may be used by others), because the original program does not
+have a manual page.
+.PP
+All these programs are used for converting from various common patch file
+formats (SoundFont and GUS) into a proprietary format used by older versions
+of the AWE32 driver. Although newer versions of the driver and utilities are
+still compatible with these formats, these formats do not support multiple
+layer voices, and in general, you should use sfxload(1), and gusload(1) to
+load SoundFonts or GUS patches directly.
+.B sf2text
+is a program which converts SoundFont (.SBK and .SF2) files into an
+intermediate text format used by txt2sfx.
+.B txt2sfx
+is a program which converts the text format output by sf2text into a binary
+format "sfx" file. This file can be read by sfxload(1).
+.B sfxtext
+takes an "sfx" file, and converts it back to the text format.
+.B gus2sfx
+is a program which converts from GUS-format patch files into the sfx format
+handled by
+.SH OPTIONS
+The programs follow the usual UNIX command line syntax, but don't support long
+options (ones starting with two dashes `-'). sf2text, and sfxtext do not
+support any options. txt2sfx and gus2sfx support the following options:
+.TP
+.B \-B
+Adds a 48\-byte blank loop to the end of each sample.
+.TP
+.B \-v
+Increases the verbosity level. Using this option more than once causes the
+output to become increasingly verbose.
+.TP
+.B \-m mode
+Sets the instrument usage mode when multiple definitions are found for the
+same instrument (multi-layered instruments): 0 means to use the first found,
+1 means to use the last, and 2 means to merge them.
+.TP
+.B \-d sf2file
+Includes raw sample data found in the SoundFont file
+.I sf2file
+\.
+.SH "SEE ALSO"
+sfxload(1), gusload(1)
+.SH AUTHOR
+This manual page was written by Tom Lees <tom@lpsg.demon.co.uk>,
+for the Debian GNU/Linux system.
+
+The AWE32 driver and utilties were written by Takashi Iwai
+<iwai@dragon.mm.t.u-tokyo.ac.jp>.

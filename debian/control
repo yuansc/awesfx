@@ -1,0 +1,30 @@
+Source: awesfx
+Section: sound
+Priority: extra
+Maintainer: Ove Kaaven <ovek@arcticnet.no>
+Build-Depends: debhelper (>> 3.0.0), libasound2-dev
+Standards-Version: 3.6.0
+
+Package: awesfx
+Architecture: any
+Depends: ${shlibs:Depends}
+Replaces: awe-utils, awe-drv
+Conflicts: awe-utils, awe-drv
+Suggests: aumix
+Description: utility programs for AWE32/64 and Emu10k1 driver
+ This package contains the following programs:
+  - asfxload     SoundFont file loader (ALSA)
+  - sfxload      SoundFont file loader (OSS)
+  - setfx        Chorus/reverb effect loader
+  - aweset       Change the running mode of AWE driver
+  - sf2text      Convert SoundFont to readable text
+  - text2sf      Revert from text to SoundFont file
+  - gusload      GUS PAT file loader
+  - sfxtest      Example program to control AWE driver
+ .
+ The package includes the correction of SoundFont managing routines,
+ called AWElib.  As default, the AWElib is installed as a static
+ library.
+ .
+ This package replace the old awe-drv and awe-utils package because
+ the driver is included in the kernel since a long time.

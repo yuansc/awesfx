@@ -1,0 +1,14 @@
+This package was debianized by
+Noel Koethe <noel@debian.org> on Fri,  6 Dec 2002 10:11:20 +0100,
+and later adopted by
+Ove Kaaven <ovek@arcticnet.no> on Sat, 28 Feb 2004 12:52:00 +0100.
+
+It was downloaded from http://www.alsa-project.org/~iwai/awedrv.html
+
+Upstream Author: Takashi Iwai <tiwai@suse.de>
+
+Copyright:
+
+Released under the terms of the GPL; see 
+/usr/share/common-licenses/GPL.
+
