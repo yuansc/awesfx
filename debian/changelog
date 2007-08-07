@@ -1,3 +1,15 @@
+awesfx (0.5.1a-1) unstable; urgency=low
+
+  * New upstream release
+    - fix for 2.6.22 build breakage (missing awe_voice.h).
+      Closes: #436349.
+    - fix for option parsing
+    - new files for udev
+  * Build-Depend on autotools-dev, so that up-to-date config.guess
+    and config.sub files are always used by autobuilders.
+
+ -- Ove Kaaven <ovek@arcticnet.no>  Tue, 07 Aug 2007 07:19:21 -0400
+
 awesfx (0.5.0b-2) unstable; urgency=low
 
   * *Really* change Build-Depends to reflect ALSA support
