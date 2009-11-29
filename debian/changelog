@@ -1,3 +1,19 @@
+awesfx (0.5.1a-1.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * In setfx.c, rename getline() to getline_local(), to avoid conflicting
+    with the standard C library function, thanks to Stefan Potyra
+    <sistpoty@ubuntu.com>. Closes: #550484.
+  * Fix typos in manual pages, thanks to  A. Costa <agcosta@gis.net>.
+    Closes: #464449, #464450.
+  * Correct spelling and grammar in description. Closes: #273124.
+  * Remove obsolete references to awe-drv and awe-utils.
+  * Add proper copyright notice to debian/copyright.
+  * Specify version of GPL in debian/copyright.
+  * Update Standards-Version to 3.8.3; no changes required.
+
+ -- Ben Hutchings <ben@decadent.org.uk>  Sun, 29 Nov 2009 18:53:11 +0000
+
 awesfx (0.5.1a-1) unstable; urgency=low
 
   * New upstream release

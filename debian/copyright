@@ -7,8 +7,8 @@ It was downloaded from http://www.alsa-project.org/~iwai/awedrv.html
 
 Upstream Author: Takashi Iwai <tiwai@suse.de>
 
-Copyright:
+Copyright: (C) 1996-2003 Takashi Iwai
 
-Released under the terms of the GPL; see 
+Released under the terms of the GPL, version 2 or later; see 
 /usr/share/common-licenses/GPL.
 
