@@ -1,3 +1,17 @@
+ver.0.5.1e
+	- fix wrong error condition checks in loadbank.c
+
+ver.0.5.1d
+	- fix possible buffer overflow in awe_read_option_file()
+
+ver.0.5.1c
+	- oops, I forgot to package COPYING file, released as 0.5.1c
+
+ver.0.5.1b
+	- fix Makefile.am for autoreconf
+	- fix udev script for recent udev versions (that don't pass
+	  PHYSDEVDRIVER variable)
+
 ver.0.5.1a
 	- really fix the build without linux/awe_voice.h
 

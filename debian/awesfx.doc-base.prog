@@ -1,0 +1,12 @@
+Document: awesfx-prog
+Title: AWEDRV PROGRAMMING NOTES
+Author: Takashi Iwai
+Abstract: The awesfx package includes several utilities for AWE32 sound driver
+ on Linux and FreeBSD systems and for Emux WaveTable of ALSA sbawe and emu10k1
+ drivers.  You need to use these utilities to enable sounds on these drivers
+ properly.
+Section: Sound
+
+Format: HTML
+Index: /usr/share/doc/awesfx/awedrv-prog.html
+Files: /usr/share/doc/awesfx/awedrv-prog.html

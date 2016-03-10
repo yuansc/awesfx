@@ -1,0 +1,1 @@
+SUBSYSTEM=="sound", KERNEL=="hwC?D2", ACTION=="add", DRIVERS=="snd_emu10k1|sbawe", RUN+="/lib/udev/awesfx.sh"

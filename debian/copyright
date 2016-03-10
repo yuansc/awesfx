@@ -1,14 +1,31 @@
-This package was debianized by
-Noel Koethe <noel@debian.org> on Fri,  6 Dec 2002 10:11:20 +0100,
-and later adopted by
-Ove Kaaven <ovek@arcticnet.no> on Sat, 28 Feb 2004 12:52:00 +0100.
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: awesfx
+Upstream-Contact: Takashi Iwai <tiwai@suse.de>
+Source: <http://www.alsa-project.org/~tiwai/awedrv.html>
 
-It was downloaded from http://www.alsa-project.org/~iwai/awedrv.html
+Files: *
+Copyright: 1996-2003 Takashi Iwai <tiwai@suse.de>
+License: GPL-2+
 
-Upstream Author: Takashi Iwai <tiwai@suse.de>
+Files: debian/*
+Copyright: 2016 Dmitry Eremin-Solenikov <dbaryshkov@gmail.com>
+           2002-2003 Noel Koethe <noel@debian.org>
+           2004-2007 Ove Kaaven <ovek@arcticnet.no>
+License: GPL-2+
 
-Copyright: (C) 1996-2003 Takashi Iwai
-
-Released under the terms of the GPL, version 2 or later; see 
-/usr/share/common-licenses/GPL.
-
+License: GPL-2+
+ This package is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or
+ (at your option) any later version.
+ .
+ This package is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License
+ along with this program. If not, see <https://www.gnu.org/licenses/>
+ .
+ On Debian systems, the complete text of the GNU General
+ Public License version 2 can be found in "/usr/share/common-licenses/GPL-2".

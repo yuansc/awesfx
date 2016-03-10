@@ -1,0 +1,13 @@
+# Default fonts
+SOUNDFONTS="TimGM6mb.sf2"
+
+# Large soundfonts, incremental loading
+# Require increased max_buffer_size option for snd-emu10k1 module
+#SOUNDFONTS="FluidR3_GM.sf2 FluidR3_GS.sf2"
+
+# Card 1 is SB AWE, which can use ROM as fallback
+#SOUNDFONTS_1="gu11-rom.sf2"
+
+
+# Additional options to be supplied to asfxload
+OPTIONS=""
