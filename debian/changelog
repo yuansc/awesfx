@@ -2,6 +2,7 @@ awesfx (0.5.1e-2) UNRELEASED; urgency=medium
 
   * Fix debian watch file.
   * Add kmod/modprobe config file to autoload snd-emu10k1-synth module.
+    Closes: #749342.
   * Bump priority to optional.
   * Bump standards version to 4.1.3
 
