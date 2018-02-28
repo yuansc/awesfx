@@ -1,3 +1,4 @@
 debian/sfxloadrc etc
 debian/*.html usr/share/doc/awesfx
 debian/awesfx.sh lib/udev
+debian/awesfx.conf etc/modprobe.d
