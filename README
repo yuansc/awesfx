@@ -1,6 +1,6 @@
 ================================================================
     AWE32 Sound Driver Utility Programs for Linux / FreeBSD
-		version 0.5.0
+		version 0.5.1
 
 		Takashi Iwai <tiwai@suse.de>
 ================================================================
@@ -165,6 +165,9 @@ OPTIONS:
 
   -v, --verbose[=level]
 	Increase or set the verbosity level.
+
+  -q, --quiet
+	Don't print error messages, equivalent with --verbose=0.
 
   -V, --volume=percent
 	Set the total volume of sounds, provided in percent.

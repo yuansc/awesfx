@@ -13,7 +13,6 @@
 # PARTICULAR PURPOSE.
 
 @SET_MAKE@
-
 VPATH = @srcdir@
 pkgdatadir = $(datadir)/@PACKAGE@
 pkglibdir = $(libdir)/@PACKAGE@
@@ -32,7 +31,7 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-subdir = samples
+subdir = etc
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.in
@@ -43,15 +42,6 @@ CONFIG_HEADER = $(top_builddir)/include/config.h
 CONFIG_CLEAN_FILES =
 SOURCES =
 DIST_SOURCES =
-am__vpath_adj_setup = srcdirstrip=`echo "$(srcdir)" | sed 's|.|.|g'`;
-am__vpath_adj = case $$p in \
-    $(srcdir)/*) f=`echo "$$p" | sed "s|^$$srcdirstrip/||"`;; \
-    *) f=$$p;; \
-  esac;
-am__strip_dir = `echo $$p | sed -e 's|^.*/||'`;
-am__installdirs = "$(DESTDIR)$(sf2dir)"
-sf2DATA_INSTALL = $(INSTALL_DATA)
-DATA = $(sf2_DATA)
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 ACLOCAL = @ACLOCAL@
 ALSA_CFLAGS = @ALSA_CFLAGS@
@@ -161,14 +151,7 @@ sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-cfg_files = README-bank \
-	ch12msup.bnk default-2m.bnk \
-	emu8m.bnk setfx-sample.cfg \
-	test.bnk xgdefault.bnk xgdrum.bnk xgmap.bnk xgsfx.bnk
-
-EXTRA_DIST = $(cfg_files)
-sf2dir = $(datadir)/sounds/sf2
-sf2_DATA = $(cfg_files)
+EXTRA_DIST = awesfx.spec load-soundfont udev-soundfont 41-soundfont.rules
 all: all-am
 
 .SUFFIXES:
@@ -181,9 +164,9 @@ $(srcdir)/Makefile.in:  $(srcdir)/Makefile.am  $(am__configure_deps)
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --gnu  samples/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --gnu  etc/Makefile'; \
 	cd $(top_srcdir) && \
-	  $(AUTOMAKE) --gnu  samples/Makefile
+	  $(AUTOMAKE) --gnu  etc/Makefile
 .PRECIOUS: Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \
@@ -207,23 +190,6 @@ mostlyclean-libtool:
 
 clean-libtool:
 	-rm -rf .libs _libs
-install-sf2DATA: $(sf2_DATA)
-	@$(NORMAL_INSTALL)
-	test -z "$(sf2dir)" || $(MKDIR_P) "$(DESTDIR)$(sf2dir)"
-	@list='$(sf2_DATA)'; for p in $$list; do \
-	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
-	  f=$(am__strip_dir) \
-	  echo " $(sf2DATA_INSTALL) '$$d$$p' '$(DESTDIR)$(sf2dir)/$$f'"; \
-	  $(sf2DATA_INSTALL) "$$d$$p" "$(DESTDIR)$(sf2dir)/$$f"; \
-	done
-
-uninstall-sf2DATA:
-	@$(NORMAL_UNINSTALL)
-	@list='$(sf2_DATA)'; for p in $$list; do \
-	  f=$(am__strip_dir) \
-	  echo " rm -f '$(DESTDIR)$(sf2dir)/$$f'"; \
-	  rm -f "$(DESTDIR)$(sf2dir)/$$f"; \
-	done
 tags: TAGS
 TAGS:
 
@@ -259,11 +225,8 @@ distdir: $(DISTFILES)
 	done
 check-am: all-am
 check: check-am
-all-am: Makefile $(DATA)
+all-am: Makefile
 installdirs:
-	for dir in "$(DESTDIR)$(sf2dir)"; do \
-	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
-	done
 install: install-am
 install-exec: install-exec-am
 install-data: install-data-am
@@ -306,7 +269,7 @@ info: info-am
 
 info-am:
 
-install-data-am: install-sf2DATA
+install-data-am:
 
 install-dvi: install-dvi-am
 
@@ -340,7 +303,7 @@ ps: ps-am
 
 ps-am:
 
-uninstall-am: uninstall-sf2DATA
+uninstall-am:
 
 .MAKE: install-am install-strip
 
@@ -350,11 +313,10 @@ uninstall-am: uninstall-sf2DATA
 	install-data install-data-am install-dvi install-dvi-am \
 	install-exec install-exec-am install-html install-html-am \
 	install-info install-info-am install-man install-pdf \
-	install-pdf-am install-ps install-ps-am install-sf2DATA \
-	install-strip installcheck installcheck-am installdirs \
-	maintainer-clean maintainer-clean-generic mostlyclean \
-	mostlyclean-generic mostlyclean-libtool pdf pdf-am ps ps-am \
-	uninstall uninstall-am uninstall-sf2DATA
+	install-pdf-am install-ps install-ps-am install-strip \
+	installcheck installcheck-am installdirs maintainer-clean \
+	maintainer-clean-generic mostlyclean mostlyclean-generic \
+	mostlyclean-libtool pdf pdf-am ps ps-am uninstall uninstall-am
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.
