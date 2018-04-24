@@ -1,7 +1,8 @@
 Source: awesfx
 Section: sound
 Priority: optional
-Maintainer: Dmitry Eremin-Solenikov <dbaryshkov@gmail.com>
+Maintainer: Debian Multimedia Maintainers <debian-multimedia@lists.debian.org>
+Uploaders: Dmitry Eremin-Solenikov <dbaryshkov@gmail.com>
 Build-Depends: debhelper (>> 9.0.0), libasound2-dev, dh-autoreconf
 Homepage: http://www.alsa-project.org/~tiwai/awedrv.html
 Standards-Version: 4.1.3
