@@ -8,8 +8,5 @@ export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 override_dh_install:
 	dh_install
 
-	mkdir -p $(CURDIR)/debian/awesfx/usr/share/doc/awesfx/examples/
-	mv $(CURDIR)/debian/awesfx/usr/share/sounds/sf2/README-bank \
-		$(CURDIR)/debian/awesfx/usr/share/doc/awesfx/
-	mv $(CURDIR)/debian/awesfx/usr/share/sounds/sf2/setfx-sample.cfg \
-		$(CURDIR)/debian/awesfx/usr/share/doc/awesfx/examples/
+	rm $(CURDIR)/debian/awesfx/usr/share/sounds/sf2/README-bank \
+	 $(CURDIR)/debian/awesfx/usr/share/sounds/sf2/setfx-sample.cfg
