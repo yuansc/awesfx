@@ -1,0 +1,35 @@
+.TH SETFX 1 "August 2019" "awesfx 0.5.2" "AWE32 manual"
+.SH NAME
+setfx \- load user defined chorus / reverb mode effects
+.SH SYNOPSIS
+.B setfx
+.I [-D devidx] [-F name] config-file
+.SH DESCRIPTION
+This manual page documents briefly the
+.BR setfx
+command.
+This manual page was written for the Debian GNU/Linux distribution
+(but may be used by others), because the original program does not
+have a manual page.
+.PP
+.B setfx
+is a program that will read configuration file, and then use it to set user
+defined chorus and reverb modes of AWE32 sound driver.
+.SH OPTIONS
+The program follows the usual UNIX command line syntax, but doesn't
+support long options (options starting with two dashes `-').
+Here is a summary of the options is accepts:-
+.TP
+.B \-F [file]
+Specifies device file
+.TP
+.B \-D [index]
+Sets devices index. Use \-1 for autoprobe
+.SH "SEE ALSO"
+sfxload(1)
+.SH AUTHOR
+This manual page was written by Dmitry Eremin-Solenikov <dbaryshkov@gmail.com>,
+for the Debian GNU/Linux system.
+
+The AWE32 driver and utilities were written by Takashi Iwai
+<iwai@dragon.mm.t.u-tokyo.ac.jp>.

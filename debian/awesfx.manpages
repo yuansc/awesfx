@@ -1,4 +1,7 @@
+debian/agusload.1
+debian/aweset.1
 debian/gusload.1
+debian/setfx.1
 debian/sf2text.1
 debian/sfxtest.1
 debian/text2sf.1
