@@ -1,3 +1,16 @@
+awesfx (0.5.2-1) unstable; urgency=medium
+
+  * New upstream version 0.5.2
+  * Change maintainer to debian-multimedia team
+  * Move Vcs to salsa.d.o
+  * Bump Standards-Version to 4.4.0 (no changes needed)
+  * Point Homepage to GitHub page
+  * Point debian/watch to GitHub releases
+  * Use debhelper to install README-bank and setfx-sample.cfg
+  * Update gusload and add agusload, aweset and setfx manpages
+
+ -- Dmitry Eremin-Solenikov <dbaryshkov@gmail.com>  Mon, 05 Aug 2019 23:11:00 +0300
+
 awesfx (0.5.1e-2) unstable; urgency=medium
 
   * Fix debian watch file.
