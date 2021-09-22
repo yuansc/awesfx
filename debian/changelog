@@ -10,6 +10,7 @@ awesfx (0.5.2-2) UNRELEASED; urgency=medium
   * Set upstream metadata fields: Bug-Database, Bug-Submit, Repository,
     Repository-Browse.
   * Drop unnecessary dependency on dh-autoreconf.
+  * Update standards version to 4.5.1, no changes needed.
 
  -- Dmitry Baryshkov <dbaryshkov@gmail.com>  Wed, 22 Sep 2021 16:02:29 +0300
 
