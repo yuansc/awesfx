@@ -3,9 +3,9 @@ Section: sound
 Priority: optional
 Maintainer: Debian Multimedia Maintainers <debian-multimedia@lists.debian.org>
 Uploaders: Dmitry Eremin-Solenikov <dbaryshkov@gmail.com>
-Build-Depends: debhelper (>> 9.0.0), libasound2-dev, dh-autoreconf
+Build-Depends: debhelper-compat (= 13), libasound2-dev
 Homepage: https://github.com/tiwai/awesfx
-Standards-Version: 4.4.1
+Standards-Version: 4.5.1
 Vcs-Git: https://salsa.debian.org/multimedia-team/awesfx.git
 Vcs-Browser: https://salsa.debian.org/multimedia-team/awesfx
 
